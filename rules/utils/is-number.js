@@ -142,10 +142,6 @@ export default function isNumber(node, scope) {
 		case 'BinaryExpression': {
 			let {operator} = node;
 
-			if (node.type === 'AssignmentExpression') {
-				operator = operator.slice(0, -1);
-			}
-
 			if (operator === '+' && isNumber(node.left, scope) && isNumber(node.right, scope)) {
 				return true;
 			}
